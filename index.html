@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Style</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #006f4f;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      width: 50px;
+      height: auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .banner-text h2 {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .banner-text p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .products-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #006f4f;
+    }
+
+    .product-card p {
+      font-size: 16px;
+      color: #777;
+    }
+
+    .product-card button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      background: #006f4f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background: #004c37;
+    }
+
+    .product-card a {
+      display: block;
+      margin-top: 8px;
+      color: #006f4f;
+      text-decoration: none;
+    }
+
+    .product-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #006f4f;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    .dark-mode header,
+    .dark-mode footer {
+      background-color: #1f1f1f;
+    }
+
+    .dark-mode .product-card {
+      background-color: #1e1e1e;
+    }
+
+    .dark-mode .product-card button {
+      background-color: #333;
+    }
+
+    .dark-mode .product-card button:hover {
+      background-color: #555;
+    }
+
+    @media only screen and (max-width: 768px) {
+      header .logo {
+        width: 40px;
+      }
+
+      .banner {
+        height: 250px;
+      }
+
+      .banner-text h2 {
+        font-size: 30px;
+      }
+
+      .products-section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-card {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://via.placeholder.com/150x50" alt="Dream Style Logo" class="logo">
+    <h1>Dream Style</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Dark Mode Button -->
+  <div style="text-align: center; margin-top: 10px;">
+    <button onclick="toggleDarkMode()" style="padding: 8px 15px; background-color: #333; color: white; border: none; border-radius: 5px;">Toggle Dark Mode</button>
+  </div>
+
+  <!-- Search Bar Section -->
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
+  </div>
+
+  <!-- Banner Section -->
+  <div class="banner">
+    <div class="banner-text">
+      <h2>Welcome to Dream Style</h2>
+      <p>Discover the best products for your lifestyle.</p>
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 1">
+      <h3>Product Name 1</h3>
+      <p>৳ 1200</p>
+      <button onclick="addToCart('Product Name 1')">Add to Cart</button>
+      <a href="#">Details</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 2">
+      <h3>Product Name 2</h3>
+      <p>৳ 1500</p>
+      <button onclick="addToCart('Product Name 2')">Add to Cart</button>
+      <a href="#">Details</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 3">
+      <h3>Product Name 3</h3>
+      <p>৳ 2500</p>
+      <button onclick="addToCart('Product Name 3')">Add to Cart</button>
+      <a href="#">Details</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 4">
+      <h3>Product Name 4</h3>
+      <p>৳ 1800</p>
+      <button onclick="addToCart('Product Name 4')">Add to Cart</button>
+      <a href="#">Details</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 5">
+      <h3>Product Name 5</h3>
+      <p>৳ 3200</p>
+      <button onclick="addToCart('Product Name 5')">Add to Cart</button>
+      <a href="#">Details</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 6">
+      <h3>Product Name 6</h3>
+      <p>৳ 4500</p>
+      <button onclick="addToCart('Product Name 6')">Add to Cart</button>
+      <a href="#">Details</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Dream Style. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    let cart = [];
+
+    function searchProducts() {
+      var input, filter, productCards, h3, i, txtValue;
+      input = document.getElementById('search');
+      filter = input.value.toUpperCase();
+      productCards = document.getElementsByClassName('product-card');
+      
+      for (i = 0; i < productCards.length; i++) {
+        h3 = productCards[i].getElementsByTagName('h3')[0];
+        txtValue = h3.textContent || h3.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          productCards[i].style.display = "";
+        } else {
+          productCards[i].style.display = "none";
+        }
+      }
+    }
+
+    function addToCart(productName) {
+      cart.push(productName);
+      alert(productName + " added to cart!");
+      console.log("Cart:", cart);
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+</html>
